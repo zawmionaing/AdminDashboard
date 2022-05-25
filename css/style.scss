@@ -1,0 +1,571 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100&display=swap');
+
+:root{
+    --primary:#5A8DEE;
+    --secondary:#475F7B;
+    --secondary-soft:#F2F4F4;
+    --light: #f3f3f3;
+    --success:#00d800;
+    --dark:#000000;
+    --soft-dark:#a7a7a7;
+    --menu-hover:#c4d9ff;
+    --border:#C7CFD6;
+
+    --soft-primary:#E2ECFF;
+    --soft-info:#CCF5F8;
+    --soft-success:#D2FFE8;
+    --soft-danger:#FFDEDE;
+    --dorpdown-box:#6fa1ff63;
+}
+
+*{
+    font-family:'Archivo', sans-serif;
+    font-size: 15px;
+    color: var(--secondary);
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    height: 100vh;
+    overflow: hidden;
+}
+
+    /* width */
+    ::-webkit-scrollbar {
+        width: 7px;
+      }  
+      
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: #bbbbbb;
+        border-radius: 10px;
+      }
+      
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--soft-dark);
+      }
+    
+
+      
+section{
+     height: 100vh;
+     width: 100%;
+ }
+
+ .nav-brand{
+    position:sticky;
+    top:0;
+    background-color: var(--light);
+    box-shadow:0 0.125rem  0.25rem rgba(0,0,0, .075);
+    margin-bottom: 5px;
+    z-index: 100;
+}
+
+ .logo{
+     width: 28px;
+     height: 28px;
+ }
+
+ .text-cap{
+    color:var(--secondary);
+    font-size:24px;
+ }
+
+
+ a{
+     text-decoration: none;
+     color: var(--secondary);
+ }
+
+ .sidebar{
+    background-color: var(--secondary-soft);
+    overflow: scroll;
+    height: 100vh;
+ }
+
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu{
+
+    .menu-items{
+        font-size: 15px !important  ;
+        transition: 0.5s;
+        padding: 10px;
+        border-radius: 0.2rem;
+        
+        .eco-badge{
+            height: 20px;
+            width: 45px;
+            color: #39DA8A;
+            background-color: var(--soft-success);
+            border-radius: 20px;
+            padding: 10px 15px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .email-badge{
+            height: 24px;
+            width: 24px;
+            color:#FF5B5C;
+            background-color: var(--soft-danger);
+            border-radius: 50%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .comp-badge{
+            height: 24px;
+            width: 24px;
+            color: #5A8DEE;
+            background-color: var(--soft-primary);
+            border-radius: 50%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+    }
+
+    .menu-level-cap{
+        background-color: white;
+    }
+    .menu-dropdown-items{
+        padding: 5px 0;
+
+        .dropdown-items{
+            margin: 5px 0;
+            padding: 5px 10px 0px 20px;
+            transition: 0.5s;
+            .eco-badge{
+                height: 20px;
+                width: 45px;
+                color: #39DA8A;
+                background-color: var(--soft-success);
+                border-radius: 20px;
+                padding: 10px 15px;
+    
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+        .dropdown-items:hover{
+            background-color: var(--menu-hover);
+        }
+    }
+    
+    .menu-items:hover{
+        background-color: var(--menu-hover);
+    }
+    .menu-spacer{
+        margin: 10px 0;
+    }
+    .menu-title{
+        
+        text-transform: uppercase;
+        font-size: 12px;
+        color: #BAC0C7;
+
+        margin-bottom: 10px;
+    }
+
+}
+
+.content{
+
+    height: 100vh;
+    overflow: scroll;
+    background-color: var(--secondary-soft);
+    box-shadow:0 0.025rem 0.25rem  0.25rem rgba(0, 0, 0, 0.075) inset;
+
+    .content-menu{
+        position: sticky;
+        top: 0;
+        z-index: 99;
+        padding: 10px 0;
+        background-color: var(--light);
+        border-bottom: 1px solid var(--soft-info);
+        box-shadow:0 00  15px rgba(0,0,0, 0.2);
+
+        .noti-dropdown{
+            width: 350px;
+            height: auto;
+            .noti-img{
+                width: 45px;
+                height: 45px;
+                border-radius: 50%;
+            }
+            .noti-count{
+                width:40px;
+                height: 30px;
+                border-radius: 50%;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .noti-status{
+                    font-size: 10px;
+                    color: #ff0000;
+                    font-weight: 900;
+                    text-transform: uppercase;
+                }
+            }
+            .chat{
+                padding: 5px 0;
+                transition:0.5s;
+            }
+            .chat:hover{
+                transform: scale(1.05);
+                cursor: pointer;
+                background-color: var(--menu-hover);
+            }
+        }
+
+        .mode-change-btn{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid var(--primary);
+            background: var(--light);
+        
+            margin-left:5px;
+
+            transition: 0.5s;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .fa-solid{
+                color: var(--dard);
+            }
+        }
+
+        .mode-change-btn:hover{
+            cursor: pointer;
+            background-color: var(--menu-hover);
+        }
+
+        
+    }
+
+    .account-icon{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    //to remove arrow in dropdown
+    .dropdown-toggle::after {
+        content: none !important;
+    }
+    // css for notification count
+    .noti-badge{
+        font-weight: 100;
+        font-size: 10px;
+        width: 20px;
+        height: 20px;
+        left: 20px;
+        bottom: 20px;
+        color: var(--light);
+
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    //header content  to make hover
+    .content-header-icon{
+        transition:0.4s;
+    }
+    
+    .content-header-icon:hover{
+        transform: translateY(-2px);
+        box-shadow:0 00  15px rgba(0,0,0, 0.2);
+    }
+
+    // dropdown display view start
+    .account-setting-show{
+        width: 250px;
+        height: 450px;
+        color: var(--light);
+        border: 0;
+        border-radius: 0.25rem;
+        background-color: #ffffff50;
+        backdrop-filter: blur(5px);
+        box-shadow:0 0  15px rgba(0,0,0, 0.5);
+        transition: 0.3s;
+
+        .account-view{  
+            width: 70px;
+            height: 70px;
+            border-radius: 0.25rem;
+        }
+
+        .active-noti{
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--success);
+            right: -3px;
+            bottom:-3px;
+        }
+        .account-setting-show-email{
+            font-size: 9px;
+        }
+        .account-setting-show-icons{
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            // background-color: black;
+            border: 1px solid var(--primary);
+            transition: 0.5s;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .account-setting-show-icons:hover{
+            background-color: var(--menu-hover);
+        }
+
+        .account-setting-profile{
+            transition: 0.5s;
+            margin-bottom: 5px;
+            .account-setting-person-img{
+                width: 25px;
+                height: 25px;
+                border-radius: 50%;
+            }
+        }
+        
+        .account-setting-profile:hover{
+            background-color: var(--menu-hover);
+        }
+    }
+    // dropdown display view start
+
+    //card style hover active etc.
+    .new-products{
+        width: 35px;
+        height: 35px;
+        border-radius: 50px;
+        background-color: #00d8006e;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .status-card{
+        transition:0.4s;
+    }
+    
+    .status-card:hover{
+        transform: translateY(-2px);
+        box-shadow:0 00  15px rgba(0,0,0, 0.2);
+    }
+    
+    .status-card-active:hover{
+        cursor: pointer;
+    }
+    .status-card-active:active{
+        transform: scale(1.03);
+        box-shadow:0 00  15px rgba(0,0,0, 0.2);
+        
+    
+    }
+
+    .new-users{
+        width: 35px;
+        height: 35px;
+        border-radius: 50px;
+        background-color: var(--soft-danger);
+        color: #FF5B5C;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .order-chart{
+        width:75%;
+        border-right: 1px solid var(--border);
+    }
+
+    .sale-items{
+        border-bottom: 1px solid var(--border);
+    }
+
+    .total-product{
+        width: 30px;
+        height: 30px;
+        border-radius: 50px;
+        background-color: var(--soft-primary);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .total-sales{
+        width: 30px;
+        height: 30px;
+        border-radius: 50px;
+        background-color: var(--soft-info);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .total-revenue{
+        width: 30px;
+        height: 30px;
+        border-radius: 50px;
+        background-color: var(--soft-danger);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .total-cost{
+        width: 30px;
+        height: 30px;
+        border-radius: 50px;
+        background-color: var(--soft-success);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .carousel-items{
+        background-color: var(--menu-hover);
+        transition: 0.5s;
+        width: 210px;
+        padding: 5px 15px;
+
+        .carousel-module{
+            color:var(--secondary);
+            transition: 0.5s;
+        }
+    }
+
+    .carousel-items:hover{
+        background-color: var(--primary);
+        cursor: pointer;
+        .carousel-module{
+            color:var(--light);
+        }
+    }
+
+    .agent{
+        .agnet-img{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .total-sale{
+            width: 60px;
+            height: 35px;
+            border-radius: 0.25rem;
+            
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            
+        }
+        .total-sale-1{
+            background-color: var(--soft-primary);
+        }
+        .total-sale-2{
+            background-color: var(--soft-info);
+        }
+        .total-sale-3{
+            background-color: var(--soft-success);
+        }
+        .total-sale-4{
+            background-color: var(--soft-danger);
+        }
+
+        .sale-agent{
+           transition: 0.5s;
+        }
+
+        .sale-agent:hover{
+            cursor: pointer;
+            background-color: var(--menu-hover);
+        }
+       
+    }
+
+    .latest-update{
+        transition: 0.5s;
+    }
+
+    .latest-update:hover{
+        cursor: pointer;
+        background-color: var(--menu-hover);
+    }
+
+    
+}
+
+@media screen and (max-width:700px) {
+    .sidebar{
+        position: fixed;    
+        width: 250px;
+        z-index: 2001;
+        display: block !important;
+        background: white;
+        margin-left: -100%;
+        
+    }
+
+    .order-chart{
+        width:100% !important;
+        padding: 0;
+    }
+
+    .sale-items{
+        width: 100%;
+        border-bottom:none  ;
+    }
+    
+    .table-column{
+        overflow: scroll;
+    }
+}
+
+@media screen and (max-width:915px) {
+    .carousel-items{
+        width: 400px;
+        margin-right: 15px;
+    }
+}

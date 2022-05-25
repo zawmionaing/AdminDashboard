@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+
+<div class="loader-container">
+  <div>
+    <div class="loader box-rotation"></div>
+  </div>
+</div>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Zaw Myo Naing's Portfolio"/>
+  <meta name="keywords" content="Admin admin-dashboard/>
+  <meta name="author" content="Zaw Myo Naing Front End Developer"/>
+
+
+  <!-- Facebook and Twitter integration -->
+  <meta property="og:title" content="Front End Developer"/>
+  <meta property="og:image" content="img/site-ss.png"/>
+  <meta property="og:url" content="#"/>
+  <meta property="og:site_name" content="Zaw Myo Naing's Portfolio"/>
+  <meta property="og:description" content="Student Projects"/>
+
+  <title>Admin Dashboard</title>
+
+  <style>
+
+.loader-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: 2000;
+}
+    
+
+/*
+The loaders use CSS custom properties (variables) to control the attributes of the loaders
+*/
+:root{
+	--loader-width: 70px;
+	--loader-height: 70px;
+	--loader-color-primary: #0d6efd;
+	--loader-color-secondary: #eee;
+	--line-width: 3px;
+	--animation-duration: 2s;
+	--loader-initial-scale: 0.1;
+}
+.loader,.loader:before,.loader:after{
+	box-sizing: border-box;
+	flex-grow: 0;
+	flex-shrink: 0;
+}
+/*
+In order to get optimal results, please only change the 
+variables above and don't change anything in the actual loader code
+*/
+	
+	
+
+@keyframes rect-rotate {
+  0% {
+    transform: rotate(0); 
+  }
+  50%, 100% {
+    transform: rotate(360deg); 
+  } 
+}
+
+@keyframes fill-rect {
+  0%, 50% {
+    height: 0px; 
+  }
+  100% {
+    
+    height: inherit; 
+  } 
+}
+
+.loader.box-rotation {
+  transform-origin: center center;
+  color: var(--loader-color-primary, #33f);
+  width: var(--loader-width, 100px);
+  height: var(--loader-height, 100px);
+  position: relative;
+  border: var(--line-width, 4px) solid;
+  display: inline-block;
+  animation: rect-rotate var(--animation-duration, 1s)  linear infinite; 
+}
+
+.loader.box-rotation::after {
+  content: "";
+  height: 0px;
+  width: 100%;
+  height:100%;
+  display: block;
+  background: var(--loader-color-primary, #33f);
+  opacity: 0.5;
+  animation: fill-rect var(--animation-duration, 1s) linear infinite; 
+}
+
+  </style>
+
+  <link rel="icon" href="img/logo.svg">
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/fontawesome-6.1.1/css/all.css">
+  <link rel="stylesheet" href="vendor/animate_it/animate.css">
+  <link rel="stylesheet" href="vendor/slick/slick.css">
+  <link rel="stylesheet" href="vendor/slick/slick-theme.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/night-mode.css">
+</head>
+<body class="">
+
+  <section> 
+    <div class="row">
+      <!-- Sidebar Start -->
+      <div class="col-12 col-md-3 col-xl-2 sidebar vh-100 pe-0 wow animate__fadeIn">
+
+        <div class="nav-brand d-flex justify-content-between"> 
+          <a href="index.html">
+            <div class="d-flex justify-content-start px-3 py-2">
+              <span class="logo me-3 ">
+                <img src="img/logo.svg" alt="">
+              </span>
+              <span class="text-cap">Frest</span>
+            </div>
+          </a>
+          <button class="hide_sidebar_btn btn bg-light d-block d-md-none me-3">
+            <i class="fa-solid fa-close text-primary"></i>
+          </button>
+        </div>
+
+        <div class="nav-menu">
+          <ul class="">
+            <li class="menu-items ps-3 ms-0">
+              <a href="#">
+                <div>
+                    <span><i class="fa fa-house-chimney me-2"></i></span>
+                    <span>Dashboard</span>
+                </div>
+              </a>
+            </li>
+            <li class="menu-spacer"></li>
+
+            <li class="menu-title ps-3 fw-bolder">Apps</li>
+
+            <li class="menu-items ps-3 ms-0">
+              <a href="#">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="">
+                    <span><i class="fa-solid fa-envelope me-2"></i></span>
+                    <span>Email</span>
+                  </div>
+                  <span class="email-badge">4</span>
+                </div>
+              </a>
+            </li>
+
+            <li class="menu-items ps-3 ms-0">
+              <a href="#">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="">
+                    <span><i class="fa-solid fa-message me-2"></i></span>
+                    <span>Chat</span>
+                  </div>
+                  <span></span>
+                </div>
+              </a>
+            </li>
+
+            <li class="menu-items ps-3 ms-0">
+             <a href="#">
+               <div>
+                <span><i class="fa  fa-check me-2"></i></span>
+                <span>Todo</span>
+               </div>
+             </a>
+            </li>
+
+            <li class="menu-items ps-3 ms-0">
+              <a href="#">
+                <div>
+                  <span><i class="fa fa-calendar-days me-2"></i></span>
+                  <span>Calendar</span>`
+                </div>
+              </a>
+            </li>
+
+            <li class="menu-items ps-3 ms-0 border-bottom" id="menu-dropdown-eco">
+              <a href="#">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="">
+                    <span><i class="fa-solid fa-cart-shopping me-1"></i></i></span>
+                    <span>Ecommerce</span>
+                  </div>
+                  <span class="eco-badge me-0">NEW</span>
+                  <span><i class="eco-icon fa-solid fa-angle-right"></i></span>
+                </div>
+              </a>
+            </li>
+            <li class="px-4 m-0 d-none animate__animated animate__fadeIn" id="menu-dropdown-eco-items">
+              <ul class="menu-dropdown-items">
+                <li class="dropdown-items">
+                  <a href="#" class="d-flex justify-content-between align-items-center">
+                    <span>Item 1</span>
+                    <small class="eco-badge me-0">NEW</small>
+                  </a>
+                </li>
+                <li class="dropdown-items">
+                  <a href="#">
+                    <span>Item 2</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-spacer"></li>
+            <li class="menu-title ps-3 fw-bolder">UI Elements</li>
+          </ul>
+
+          <ul class="w-100 menu-level-cap rounded-1 border-1 ms-2 my-0">
+            <li class="ps-3 ms-0 border-bottom" id="menu-dropdown-levels">
+              <div class="d-flex justify-content-between align-items-center ">
+                <div>
+                  <span><i class="fa fa-bars text-primary me-2"></i></span>
+                  <span>Menu Levels</span>
+                </div>
+                <button class="menu-open-btn btn"><i class="levels-icon fa-solid fa-angle-right"></i></button>
+              </div>
+            </li>
+            <li class="d-none animate__animated animate__fadeIn" id="menu-dropdown-levels-items">
+              <ul>
+                <li class="menu-items ps-3 ms-0 ">
+                  <a href="#">
+                    <div class="">
+                      <span><i class="fa-solid fa-arrow-right me-2"></i></span>
+                      <span>First Level</span>
+                    </div>
+                  </a>
+                </li>
+                <li class="menu-items ps-3 ms-0 border-bottom" id="menu-dropdown-1-level">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <span><i class="fa-solid fa-arrow-right me-2"></i></span>
+                      <span>First Level</span>
+                    </div>
+                    <span><button class="menu-open-btn btn"><i class="1-level-icon fa-solid fa-angle-right"></i></button></span>
+                  </div>
+                </li>
+                <li class="d-none animate__animated animate__fadeIn" id="menu-dropdown-1-level-items">
+                  <ul>
+                    <li class="menu-items ps-4">
+                      <a href="#">
+                        <div>
+                          <span><i class="fa-solid fa-arrow-right me-2"></i></span>
+                          <span>Second levels</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="menu-items ps-4" id="menu-dropdown-2-level">
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                          <span><i class="fa-solid fa-arrow-right me-2"></i></span>
+                          <span>Second Level</span>
+                        </div>
+                        <span><button class="menu-open-btn btn"><i class="2-level-icon fa-solid fa-angle-right"></i></button></span>
+                      </div>
+                    </li>
+                    <li class="d-none animate__animated animate__fadeIn" id="menu-dropdown-2-level-items">
+                      <ul>
+                        <li class="menu-items ps-5">
+                          <a href="#">
+                            <div>
+                              <span><i class="fa-solid fa-arrow-right me-2"></i></span>
+                              <span>Third levels</span>
+                            </div>
+                          </a>
+                        </li>
+                        <li class="menu-items ps-5">
+                          <a href="#">
+                            <div>
+                              <span><i class="fa-solid fa-arrow-right me-2"></i></span>
+                              <span>Third levels</span>
+                            </div>
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul  class="">
+            <li class="menu-items ps-3 ms-0">
+              <a href="#">
+                <div>
+                  <span><i class="fa fa-paperclip me-2"></i></span>
+                  <span>Content</span>
+                </div>
+              </a>
+            </li>
+            <li class="menu-items ps-3 ms-0">
+              <a href="#">
+                <div>
+                  <span><i class="fa fa-droplet me-2"></i></span>
+                  <span>Color</span>
+                </div>
+              </a>
+            </li>
+            <li class="menu-items ps-3 ms-0">
+              <a href="#">
+                <div>
+                  <span><i class="fa-solid fa-lightbulb me-2"></i></span>
+                  <span>Icons</span>
+                </div>
+              </a>
+            </li>
+            <li class="menu-items ps-3 ms-0">
+              <a href="#">
+                <div class="d-flex justify-content-between">
+                  <div>
+                    <span><i class="fa-solid fa-star me-2"></i></i></span>
+                    <span>Componets</span>
+                  </div>
+                  <span class="comp-badge me-0">10</span>
+                </div>
+              </a>
+            </li>
+            <li class="menu-speacer"></li>
+            <li class="menu-title ps-3 fw-bolder ms-0">Form & Table</li>
+            <li class="menu-items ps-3 ms-0">
+              <a href="#">
+                <div>
+                  <span><i class="fa fa-arrow-rotate-right me-2"></i></span>
+                  <span>Extra Components</span>
+                </div>
+              </a>
+            </li>
+            <li class="menu-items ps-3 ms-0">
+              <a href="#">
+                <div>
+                  <span><i class="fa-regular fa-circle-check me-2"></i></span>
+                  <span>Form Elements</span>
+                </div>
+              </a>
+            </li>
+            <li class="menu-items ps-3 ms-0">
+              <a href="#">
+                <div>
+                  <span><i class="fa fa-table me-2"></i></span>
+                  <span>Form Layout</span>
+                </div>
+              </a>
+            </li>
+            <li class="menu-items ps-3 ms-0">
+              <a href="#">
+                <div>
+                  <span><i class="fa-solid fa-ellipsis me-2"></i></span>
+                  <span>Form Wizars</span>
+                </div>
+              </a>
+            </li>
+            <li class="menu-items ps-3 ms-0">
+              <a href="#">
+                <div>
+                  <span><i class="fa-solid fa-check me-2"></i></span>
+                  <span>Form Validation</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Sidebar End -->
+
+      <!-- Content Start  -->
+      <div class="col-12 col-md-9 col-xl-10 content px-4 pb-3 wow animate__fadeIn">
+        <div class="row content-menu wow animate__slideInDown">
+          <div class="col-12">
+            <div class="d-flex justify-content-between">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="show_sidebar_btn btn bg-light d-block d-md-none me-md-5">
+                  <i class="fa fa-bars text-primary" ></i>
+                </div>
+                <div class="d-none d-md-block">
+                <span><i class="content-header-icon fa fa-envelope me-3"></i></span>
+                <span><i class="content-header-icon fa fa-message me-3"></i></span>
+                <span><i class="content-header-icon fa fa-circle-check me-3"></i></span>
+                <span><i class="content-header-icon fa fa-calendar"></i></span>
+                
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center me-3">
+                  <div class="input-group-sm d-flex">
+                    <input type="text" class="search-box d-none animate__animated animate__fadeIn form-control rounded-3" placeholder="Search eveything" aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <button class="btn search-btn" type="button""><i class="content-header-icon fa fa-search"></i></button>
+                  </div>
+                </div>
+                <div class="me-3 dropdown-toggle" id="dropdownMenuButtonNoti" data-bs-toggle="dropdown" aria-expanded="false" >
+                  <button type="button" class="btn position-relative">
+                    <i class="fa-solid fa-bell"></i>
+                    <span class="position-absolute noti-badge rounded-circle bg-danger">
+                      4
+                      <span class="visually-hidden">unread messages</span>
+                    </span>
+                  </button>
+                </div>
+
+                <!-- noti drop start -->
+                <div class="noti-dropdown dropdown-menu animate__animated animate__fadeIn bg-white border-0 shadow" aria-labelledby="dropdownMenuButtonNoti">
+                  <div class="row">
+                    <div class="col-12">
+
+                      <a href="#">
+                        <div class="chat d-flex justify-content-between align-items-center px-3">
+                          <div class="d-flex ">
+                            <img src="img/user/avatar10.jpg" class="noti-img me-3" alt="agent"> 
+                            <div class="d-flex flex-column w-100">
+                              <span>Lula Taylor</span>
+                              <small>What u doing today.</small>
+                            </div>
+                          </div>
+                          <div class="noti-count">
+                            <span class="noti-status">new</span>
+                          </div>
+                        </div>
+                      </a>
+
+                      <a href="#">
+                        <div class="chat d-flex justify-content-between align-items-center px-3">
+                          <div class="d-flex ">
+                            <img src="img/user/avatar4.jpg" class="noti-img me-3" alt="agent"> 
+                            <div class="d-flex flex-column w-100">
+                              <span>Peterson</span>
+                              <small>Hay bro!.</small>
+                            </div>
+                          </div>
+                          <div class="noti-count">
+                            <span class="noti-status"></span>
+                          </div>
+                        </div>
+                      </a>
+
+                      <a href="#">
+                        <div class="chat d-flex justify-content-between align-items-center px-3">
+                          <div class="d-flex ">
+                            <img src="img/user/avatar6.jpg" class="noti-img me-3" alt="agent"> 
+                            <div class="d-flex flex-column w-100">
+                              <span>Myra Baker</span>
+                              <small>K we meet next day.</small>
+                            </div>
+                          </div>
+                          <div class="noti-count">
+                            <span class="noti-status"></span>
+                          </div>
+                        </div>
+                      </a>
+
+                    </div>
+                  </div>
+                </div>
+                <!-- noti drop stop -->
+                
+                <select name="language" id="" class=" form-select-sm me-3">
+                  <option value="english">
+                    <!-- <span><img src="img/us-flag.png" alt=""></span> -->
+                    <span>English</span>
+                  </option>
+                  <option value="myanmar">
+                    <!-- <span><img src="img/myanmar-flag.png" alt=""></span> -->
+                    <span>Myanmar</span>
+                  </option>
+                </select>
+                <div class="d-flex justify-content-around align-items-start">
+                  <div class="dropdown-toggle d-flex" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" >
+                    <div class="d-none d-md-flex flex-column justify-content-end align-items-end me-3 h6">
+                      <a href="#">Zaw Myo Naing</a>
+                      <a href="#"><small>Available</small></a>
+                    </div>
+                    <img src="img/account.jpg" class="account-icon " alt="">
+
+                  </div>
+                  
+                  <div class="account-setting-show dropdown-menu animate__animated animate__fadeIn" aria-labelledby="dropdownMenuButton">
+                      <div class="row">
+                        <div class="col-12 mb-3">
+                          <div class="d-flex flex-column justify-content-center align-items-center">
+                            <span class="fw-bolder mt-3 mb-2 setting-show-text">User 1</span>
+                            <a href="#">
+                              <div class="position-relative d-flex justify-content-center mb-2">
+                                <img src="img/account.jpg" class="account-view" alt="">
+                                <div class="active-noti position-absolute"></div>
+                              </div>
+                            </a>
+                            <span class="setting-show-text">Zaw Myo Naing</span>
+                            <span class="mb-2 account-setting-show-email setting-show-text">zzawmyonaing001@gmail.com</span>
+                            <div class="d-flex justify-content-center align-items-center">
+                              <a href="#">
+                                <div class="account-setting-show-icons me-1">
+                                <span><i class="fa-solid fa-key"></i></span>
+                                </div>
+                              </a>
+                              <a href="#">
+                                <div class="account-setting-show-icons me-1">
+                                  <span><i class="fa-solid fa-suitcase"></i></span>
+                                </div>
+                              </a>
+                              <a href="#">
+                                <div class="account-setting-show-icons me-1">
+                                  <span><i class="fa-solid fa-location-pin"></i></span>
+                                </div>
+                              </a>
+                            </div>
+                          </div>  
+                        </div>
+                        <div class="col-12">
+                          <a href="#" class="d-flex justify-content-start account-setting-profile ps-3 py-1 w-100 mb-0">
+                            <span><i class="fa-solid fa-bars-progress"></i></span>
+                            <span class="setting-show-text">Manage your account</span>
+                          </a>
+                        </div>
+                      </div>
+                      <hr class="mt-1">
+                      <div class="row">
+                        <div class="col-12 mb-2">
+                          <div class="d-flex justify-content-between align-items-center px-2">
+                            <span class="setting-show-text">Other profiles</span>
+                            <a href="#"><span><i class="fa-solid fa-gear setting-show-text"></i></span></a>
+                          </div>
+                        </div>
+                        <div class="col-12">
+                          <a href="#">
+                            <div class="account-setting-profile d-flex justify-content-start align-items-center px-3 py-1">
+                              <span>
+                                <img src="img/user/avatar1.jpg" class="account-setting-person-img me-2" alt="">
+                              </span>
+                              <span class="setting-show-text">User 2</span>
+                            </div>
+                          </a>
+                        </div>
+                        <div class="col-12">
+                          <a href="#">
+                            <div class="account-setting-profile d-flex justify-content-start align-items-center px-3 py-1">
+                              <span>
+                                <img src="img/user/avatar5.jpg" class="account-setting-person-img me-2" alt="">
+                              </span>
+                              <span class="setting-show-text">User 3</span>
+                            </div>
+                          </a>
+                        </div>
+                        <div class="col-12">
+                          <a href="#">
+                            <div class="account-setting-profile d-flex justify-content-start align-items-center px-3 py-1">
+                              <span><i class="account-setting-person-img fa-solid fa-plus me-2"></i></span>
+                              <span class="setting-show-text">Add</span>
+                            </div>
+                          </a>
+                        </div> 
+                      </div>
+                  </div>
+                </div>
+                <div class="mode-change-btn">
+                  <i class="fa-solid fa-moon animate__animated animate__fadeIn" id="modeIcon"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row my-lg-4">
+          <div class="col-12 col-md-6 col-lg-4 mb-3">
+            <div class="card h-100 status-card border-0 shadow px-2">
+              <div class="card-body m-0 p-1">
+                <div class="d-flex flex-column justify-content-between align-items-start h-100 p-3">
+                  <div class="mb-4">
+                    <h5 class="fw-light mb-0">Congratulations Zaw!</h5>
+                    <p class="fw-light mb-0">Best seller of the month</p>
+                  </div>
+                  <div class="d-md-block d-lg-flex justify-content-between align-items-end w-100">
+                    <div class="d-flex flex-column align-items-start">
+                      <h1 class="fw-light mb-0 text-primary">$<span class="counter-up h1 text-primary">89</span>k</h1>
+                      
+                      <p class="mb-0 fs-6 fw-lighter">You have done 57.6%</p>
+                      <p class="mb-0 fs-6 fw-lighter">more sales today.</p>
+                      <button class="btn bg-primary text-white">View Sales</button>
+                    </div>
+                    <div>
+                      <img src="img/content_1.svg" alt="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4 mb-3">
+            <div class="card h-100 status-card border-0 shadow px-2 mb-5">
+              <div class="card-body m-0 p-1">
+                <div class="d-flex flex-column justify-content-between h-100 w-100 p-3">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <p class="fw-light mb-0">Visit of 2021</p>
+                    <a href="#"><span><i class="fa-solid fa-ellipsis-vertical"></i></span></a>
+                  </div>
+                  <div>
+                    <canvas id="visit"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-12 col-lg-4 mb-3">
+            <div class="row">
+              <div class="col-6 mb-2">
+                <div class="card h-100 status-card status-card-active border-0 shadow px-2">
+                  <div class="card-body m-0 py-1">
+                    <div class="d-flex flex-column justify-content-center align-items-center p-2">
+                      <div class="new-products"><span><i class="fa-solid fa-box text-success mb-1"></i></span></div>
+                      <p class="fw-light mb-0">New Products</p>
+                      <h2 class="mb-0 fw-light text-primary"><span class="counter-up fw-light h2 text-primary">1.2</span>k</h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 mb-2">
+                <div class="card h-100 status-card status-card-active border-0 shadow px-2">
+                  <div class="card-body m-0 py-1">
+                    <div class="d-flex flex-column justify-content-center align-items-center p-2">
+                      <div class="new-users"><span><i class="fa-solid fa-user text-danger mb-1"></i></span></div>
+                      <p class="fw-light mb-0">New Users</p>
+                      <h2 class="mb-0 fw-light text-primary"><span class="counter-up fw-light h2 text-primary">49.5</span>k</h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="card h-100 status-card border-0 shadow px-2 h-100">
+                  <div class="card-body m-0 p-1">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                      <p class="fw-light mb-0">Revenue Growth</p>
+                      <a href="#"><span>$<span class="counter-up">25,980</span><i class="fa-solid fa-ellipsis-vertical ms-2"></i></span></a>
+                    </div>
+                    <div>
+                      <canvas id="revenueGrowth"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row my-lg-4">
+          <div class="col-12 col-lg-8 mb-3">
+            <div class="card h-100 status-card border-0 shadow">
+              <div class="card-body p-0">
+                <div class="d-md-flex w-100 me-0">
+
+                  <div class="d-flex flex-column order-chart h-100 mb-2">
+                    <div class="p-3">
+                      <h5 class="fw-light mb-0">Order Summary</h5>
+                    </div>
+                    <!-- Chart -->
+                    <div>
+                      <canvas id="order-summary"></canvas>
+                    </div>
+                  </div>
+                  
+                  <div class="d-flex flex-column me-0 w-md-25 pb-3">
+                    <div class="p-3 w-100">
+                      <h5 class="fw-light mb-0">Sales History</h5>
+                    </div>
+                    <div class="d-block d-md-flex flex-md-column justify-content-between">
+                      <div class="px-3 sale-items mb-4">
+                        <div class="d-flex justify-content-between w-100 mb-2">
+                          <div class="d-flex flex-column">
+                            <span>Headphone</span>
+                            <small>30min ago</small>
+                          </div>
+                          <span>+$<span class="counter-up">150.7</span></span>
+                        </div>
+                        <div class="d-flex justify-content-between w-100 mb-2">
+                          <div class="d-flex flex-column">
+                            <span>iphone</span>
+                            <small>2hour ago</small>
+                          </div>
+                          <span>+$<span class="counter-up">590</span></span>
+                        </div>
+                        <div class="d-flex justify-content-between w-100 mb-2">
+                          <div class="d-flex flex-column">
+                            <span>Macbook</span>
+                            <small>1day ago</small>
+                          </div>
+                          <span>+$<span class="counter-up">1.2</span>k</span>
+                        </div>
+                      </div>
+                      <div class="px-3">
+                        <h5 class="fw-light mb-0">Total Sales</h5>
+                        <span class="text-primary">$<span class="counter-up text-primary">82,950.96</span></span>
+                        <div class="progress" style="height: 6px;">
+                          <div class="progress-bar w-75 " role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-lg-4">
+            <div class="card h-100 status-card border-0 shadow">
+              <div class="card-body p-0">
+                <div class="">
+                  <div class="d-flex justify-content-between px-3 pt-3 mb-2">
+                    <h5 class="fw-light mb-0">Latest Updates</h5>
+                    <select id="yearSelection" class="form-select-sm">
+                      <option value="2015">2019</option>
+                      <option value="2015">2020</option>
+                      <option value="2015">2021</option>
+                      <option value="2015">2022</option>
+                    </select>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center latest-update px-3 py-2">
+                    <div class="d-flex align-items-center">
+                      <div class="total-product me-3"><span><i class="fa-solid fa-bolt text-primary"></i></span></div>
+                      <div class="d-flex flex-column">
+                        <span>Total Products</span>
+                        <small><span class="counter-up">1.2</span>k New Products</small>
+                      </div>
+                    </div>
+                      <span><span class="counter-up">10.6</span>k</span>
+                  </div>
+
+                  <div class="d-flex justify-content-between align-items-center latest-update px-3 py-2">
+                    <div class="d-flex align-items-center">
+                      <div class="total-sales me-3"><span><i class="fa-solid fa-circle-dollar-to-slot text-info"></i></span></div>
+                      <div class="d-flex flex-column">
+                        <span>Total Sales</span>
+                        <small><span class="counter-up">39.4</span>k New Sales</small>
+                      </div>
+                    </div>
+                      <span><span class="counter-up">26</span>M</span>
+                  </div>
+
+                  <div class="d-flex justify-content-between align-items-center latest-update px-3 py-2">
+                    <div class="d-flex align-items-center">
+                      <div class="total-revenue me-3"><span><i class="fa-solid fa-wallet text-danger"></i></span></div>
+                      <div class="d-flex flex-column">
+                        <span>Total Revenue</span>
+                        <small><span class="counter-up">43.6</span>k New Revenue</small>
+                      </div>
+                    </div>
+                      <span><span class="counter-up">15.89</span>M</span>
+                  </div>
+
+                  <div class="d-flex justify-content-between align-items-center latest-update px-3 py-2">
+                    <div class="d-flex align-items-center">
+                      <div class="total-cost me-3"><span><i class="fa-solid fa-dollar-sign text-success"></i></span></div>
+                      <div class="d-flex flex-column">
+                        <span>Total Cost</span>
+                        <small>Total Products</small>
+                      </div>
+                    </div>
+                      <span><span class="counter-up">1.25</span>B</span>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row my-4">
+          <div class="col-12 col-md-12 col-lg-4 mb-3">
+            <div class="card h-100 status-card border-0 shadow">
+              <div class="card-body p-0">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="earning-card border-bottom d-flex justify-content-between px-3 pt-3">
+                      <h5 class="card-title fw-light"><i class="fa-solid fa-dollar h3"></i> Earning</h5>
+                      <a href="#"><span><i class="fa-solid fa-ellipsis-vertical"></i></span></a>
+                    </div>
+                  </div>
+                </div>
+                <!-- sliding row  -->
+                <div class="row my-3">
+                  <div class="seller-items-slide ">
+
+                   <div class="col-12 col-md-12 col-lg-6 m-md-0">
+                    <div class="carousel-items d-flex justify-content-center align-items-center rounded">
+                      <span><i class="carousel-module fa-solid fa-book-journal-whills h2 me-3"></i></span>
+                      <div class="d-flex flex-column">
+                        <span class="carousel-module">Books & ebooks</span>
+                        <small class="carousel-module">Sell 35.5%</small>
+                      </div>
+                    </div>  
+                   </div>   
+                   <div class="col-12 col-md-12 col-lg-6 m-md-0">
+                    <div class="carousel-items d-flex justify-content-center align-items-center rounded">
+                      <span><i class="carousel-module fa-solid fa-signal h2 me-3"></i>
+                      </span>
+                      <div class="d-flex flex-column">
+                        <span class="carousel-module">Best Sellers</span>
+                        <small class="carousel-module">Cloth Wear 70%</small>
+                      </div>
+                    </div>  
+                   </div>    
+                   <div class="col-12 col-md-12 col-lg-6 m-md-0">
+                    <div class="carousel-items d-flex justify-content-center align-items-center rounded">
+                      <span><i class="carousel-module fa-solid fa-plug-circle-bolt h2 me-3"></i></span>
+                      <div class="d-flex flex-column">
+                        <span class="carousel-module">Electronic</span>
+                        <small class="carousel-module">Sell 45%</small>
+                      </div>
+                    </div>  
+                   </div>    
+                   <div class="col-12 col-md-12 col-lg-6 m-md-0">
+                    <div class="carousel-items d-flex justify-content-center align-items-center rounded">
+                      <span><i class="carousel-module fa-solid fa-screwdriver-wrench h2 me-3"></i></span>
+                      <div class="d-flex flex-column">
+                        <span class="carousel-module">Construction Tools</span>
+                        <small class="carousel-module">Sell 40%</small>
+                      </div>
+                    </div>  
+                   </div>                   
+
+                  </div>
+                </div>
+
+                <!-- sell agnet  -->
+                <div class="row my-3 agent pt-2">
+                  <divl class="col-12">
+                    <div class="d-flex justify-content-between align-items-center sale-agent px-3 py-2">
+                      <div class="d-flex w-50">
+                        <img src="img/user/avatar2.jpg" class="agnet-img me-3" alt="agent"> 
+                        <div class="d-flex flex-column">
+                          <span>Myra Baker</span>
+                          <small>Women's Wear</small>
+                        </div>
+                      </div>
+                      <div class="progress" style="height: 6px; width: 70px;">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <div class="total-sale total-sale-1">
+                        <span class="text-primary">+$</span>
+                        <span class="counter-up text-primary">52</span>
+                      </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center sale-agent px-3 py-2">
+                      <div class="d-flex w-50">
+                        <img src="img/user/avatar4.jpg" class="agnet-img me-3" alt="agent"> 
+                        <div class="d-flex flex-column">
+                          <span>Peterson</span>
+                          <small>Mens Wear</small>
+                        </div>
+                      </div>
+                      <div class="progress" style="height: 6px; width: 70px;">
+                        <div class="progress-bar bg-info" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <div class="total-sale total-sale-2">
+                        <span class="text-info">-$</span>
+                        <span class="counter-up text-info">30</span>
+                      </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center sale-agent px-3 py-2">
+                      <div class="d-flex w-50">
+                        <img src="img/user/avatar5.jpg" class="agnet-img me-3" alt="agent"> 
+                        <div class="d-flex flex-column">
+                          <span>Fernandez</span>
+                          <small>Kids Wear</small>
+                        </div>
+                      </div>
+                      <div class="progress" style="height: 6px; width: 70px;">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <div class="total-sale total-sale-3">
+                        <span class="text-success">+$</span>
+                        <span class="counter-up text-success">85</span>
+                      </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center sale-agent px-3 py-2">
+                      <div class="d-flex w-50">
+                        <img src="img/user/avatar10.jpg" class="agnet-img me-3" alt="agent"> 
+                        <div class="d-flex flex-column">
+                          <span>Lula Taylor</span>
+                          <small>Ethic Wear</small>
+                        </div>
+                      </div>
+                      <div class="progress" style="height: 6px; width: 70px;">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <div class="total-sale total-sale-4">
+                        <span class="text-danger">-$</span>
+                        <span class="counter-up text-danger">35</span>
+                      </div>
+                    </div>
+
+                  </divl>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          
+          <div class="col-12 col-md-12 col-lg-8 mb-3">
+            <div class="card h-100 status-card border-0 shadow">
+              <div class="card-body p-0">
+                <div class="row">
+                 <div class="col-12">
+                  <div class="marketing=campaign-card d-flex justify-content-between align-items-center px-3 pt-3">
+                    <h5 class="card-title fw-light">Marketing Campaigns</h5>
+                    <a href="#"><span><i class="fa-solid fa-ellipsis-vertical"></i></span></a>
+                  </div>
+                  </div>
+                  <div class="col-12 col-md-4">
+                   <div class="d-flex justify-content-between align-items-center px-3 pt-3">
+                      <div class="w-50">
+                        <canvas id="marketing-chart-1"></canvas>
+                      </div>
+                      <div class="d-flex flex-column align-items-start">
+                        <div class="d-flex align-items-center">
+                          <span class="counter-up">25,756</span>
+                          <span class="text-info ms-3">(+</span><span class="counter-up text-info">16.2</span><span class="text-info">%)</span>
+
+                        </div>
+                        <small>May 12, 2019</small>
+                      </div>
+                   </div>
+                  </div>
+                  <div class="col-12 col-md-4">
+                    <div class="d-flex justify-content-between align-items-center px-3 pt-3">
+                      <div class="w-50">
+                        <canvas id="marketing-chart-2"></canvas>
+                      </div>
+                      <div class="d-flex flex-column align-items-start">
+                        <div class="d-flex align-items-center">
+                          <span class="counter-up">5,352</span>
+                          <span class="text-danger ms-3">(-</span><span class="counter-up text-danger">4.5</span><span class="text-danger">%)</span>
+                        </div>
+                        <small>May 12, 2019</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-4">
+                    <div class="d-flex justify-content-end px-3 pt-3">
+                      <button class="btn bg-primary text-white">View Report</button>
+                    </div>
+                  </div>
+
+
+                </div>
+
+                <div class="row px-3 pt-3">
+                  <div class="col-12 table-column">
+                    <table class="table table-borderless table-hover w-100">
+                      <thead class="">
+                        <tr>
+                          <th>Campaign</th>
+                          <th>Growth</th>
+                          <th>Charges</th>
+                          <th>Status</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <div class="d-flex align-items-center">
+                              <span><i class="fas fa-clock text-warning h3 me-3"></i></span>
+                              <span>Fastrack Watchies</span>
+                            </div>
+                          </td>
+                          <td>
+                            <div>
+                              <i class="fa-solid fa-arrow-trend-up text-success me-1"></i>
+                              <span class="counter-up">30</span><span>%</span>
+                            </div>
+                          </td>
+                          <td>
+                            <span>$</span><span class="counter-up">5,536</span>
+                          </td>
+                          <td>
+                            <span class="text-success">Active</span>
+                          </td>
+                          <td>
+                            <a href="#" class="d-flex justify-content-end align-items-center"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="d-flex align-items-center">
+                              <span><i class="fas fa-shoe-prints text-danger h3 me-3"></i></span>
+                              <span>Puma Shoes</span>
+                            </div>
+                          </td>
+                          <td>
+                            <div>
+                              <i class="fa-solid fa-arrow-trend-down text-danger me-1"></i>
+                              <span class="counter-up">15.5</span><span>%</span>
+                            </div>
+                          </td>
+                          <td>
+                            <span>$</span><span class="counter-up">1,569</span>
+                          </td>
+                          <td>
+                            <span class="text-success">Active</span>
+                          </td>
+                          <td>
+                            <a href="#" class="d-flex justify-content-end align-items-center"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="d-flex align-items-center">
+                              <span><i class="fas fa-check text-dark h3 me-3"></i></span>
+                              <span>Nike Air Jordan</span>
+                            </div>
+                          </td>
+                          <td>
+                            <div>
+                              <i class="fa-solid fa-arrow-trend-up text-success me-1"></i>
+                              <span class="counter-up">70.30</span><span>%</span>
+                            </div>
+                          </td>
+                          <td>
+                            <span>$</span><span class="counter-up">23,859</span>
+                          </td>
+                          <td>
+                            <span class="text-danger">Closed</span>
+                          </td>
+                          <td>
+                            <a href="#" class="d-flex justify-content-end align-items-center"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="d-flex align-items-center">
+                              <span><i class="fa-solid fa-mobile-button text-danger h3 me-3"></i></span>
+                              <span>Oneplus 7 pro</span>
+                            </div>
+                          </td>
+                          <td>
+                            <div>
+                              <i class="fa-solid fa-arrow-trend-up text-success me-1"></i>
+                              <span class="counter-up">10.4</span><span>%</span>
+                            </div>
+                          </td>
+                          <td>
+                            <span>$</span><span class="counter-up">9523</span>
+                          </td>
+                          <td>
+                            <span class="text-success">Active</span>
+                          </td>
+                          <td>
+                            <a href="#" class="d-flex justify-content-end align-items-center"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="d-flex align-items-center">
+                              <span><i class="fa-brands fa-google text-primary h3 me-3"></i></span>
+                              <span>Google Pixel 4 xl</span>
+                            </div>
+                          </td>
+                          <td>
+                            <div>
+                              <i class="fa-solid fa-arrow-trend-down text-danger me-1"></i>
+                              <span class="counter-up">62.38</span><span>%</span>
+                            </div>
+                          </td>
+                          <td>
+                            <span>$</span><span class="counter-up">12,897</span>
+                          </td>
+                          <td>
+                            <span class="text-danger">Closed</span>
+                          </td>
+                          <td>
+                            <a href="#" class="d-flex justify-content-end align-items-center"><i class="fa-solid fa-ellipsis-vertical"></i></a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+              <div class="pb-5 text-white fs-6 d-flex flex-column flex-md-row justify-content-between align-items-center">
+                  <span>@Copyright Admindashboard,Portfolio. All Rights Reserved</span>
+                  <span>
+                    Develop by 
+                    <a href="#" class="text-primary">Zaw Myo Niang</a>
+                    <span class="ms-3">Junior Front End Developer</span>
+                  </span>
+              </div>
+          </div>
+      </div>
+      </div>
+      <!-- Content End   -->
+
+    </div>
+  </section>
+
+  <script src="vendor/jquery-3.3.1.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.js"></script>
+  <script src="vendor/chart_js/Chart.min.js"></script>
+  <script src="vendor/way_point/jquery.waypoints.min.js"></script>
+  <script src="vendor/counter_up/counter_up.js"></script>
+  <script src="vendor/slick/slick.min.js"></script>
+  <script src="vendor/wow/wow.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
